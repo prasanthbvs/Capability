@@ -55,7 +55,7 @@ class Add_questionSerializertwo(serializers.ModelSerializer):
         choices = validated_data.pop('choices')
         question = app_question.objects.create(**validated_data)
         for choice in choices:
-             question_choices.objects.create(question_id=question, **choice)
+             question.question_choices.create(question_id=question, **choice)
         return question
     ###############################################################################################################################
     # def create(self,validated_data):
